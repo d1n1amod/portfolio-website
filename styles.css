@@ -1,3 +1,57 @@
-a {
-    text-decoration: none;
+
+
+
+
+/* theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f5f5f5;
+    --border-color: #dddddd;
+    --button-bg: #e0e0e0;
+    --button-hover: #cccccc;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+ 
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f5f5f5;
+    --card-bg: #2d2d2d;
+    --border-color: #444444;
+    --button-bg: #3d3d3d;
+    --button-hover: #4d4d4d;
+}
+
+/* button */
+.theme-toggle-container {
+    text-align: left;
+    padding: 20px;
+}
+
+
+.theme-toggle {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+
+}
+
+.theme-toggle:hover {
+    background-color: transparent;
+    transform: scale(1.05);
 }
