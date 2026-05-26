@@ -57,6 +57,56 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.addEventListener('click', toggleTheme);
     }
     
+    
+
+
+
+
     loadNavigation();
     initThemeToggle();
+    initLightbox();
+});
+
+
+
+// lightbox
+function initLightbox() {
+    
+    const images = document.querySelectorAll('figure img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    
+    if (!lightbox || !lightboxImg) {
+        console.log('Lightbox elements not found');
+        return;
+    }
+    
+    
+    images.forEach(img => {
+        // Add class for styling
+        img.classList.add('project-image');
+        
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    })
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadNavigation();    
+    initThemeToggle();   
+    initLightbox();     
 });
