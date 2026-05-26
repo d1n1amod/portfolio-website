@@ -72,41 +72,55 @@ document.addEventListener('DOMContentLoaded', function() {
 // lightbox
 function initLightbox() {
     
-    const images = document.querySelectorAll('figure img');
+    if (!document.body.classList.contains('work-page')) {
+        console.log('Lightbox disabled on this page');
+        return;
+    }
+    
+    console.log('Running lightbox on work page');
+    
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox-close');
     
-    if (!lightbox || !lightboxImg) {
-        console.log('Lightbox elements not found');
+    
+    if (!lightbox || !lightboxImg || !closeBtn) {
+        console.error('Lightbox elements not found in HTML');
         return;
     }
     
+  
+    const images = document.querySelectorAll('figure img');
+    
+    if (images.length === 0) {
+        console.log('No images found on this page');
+        return;
+    }
     
     images.forEach(img => {
-        // Add class for styling
-        img.classList.add('project-image');
+        img.style.cursor = 'pointer';
+        img.classList.add('clickable-image');
         
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            
+        img.addEventListener('click', () => {
             lightboxImg.src = img.src;
             lightboxImg.alt = img.alt;
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; 
         });
-    })
+    });
     
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; 
+        lightboxImg.src = '';
     }
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadNavigation();    
+    loadNavigation();   
     initThemeToggle();   
-    initLightbox();     
+    initLightbox();      
 });

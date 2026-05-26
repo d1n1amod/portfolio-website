@@ -58,7 +58,7 @@ body.dark-mode {
 
 
 
-/* Lightbox styles */
+/* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
@@ -101,7 +101,7 @@ body.dark-mode {
     transform: scale(1.1);
 }
 
-/* Make images clickable */
+/* images clickable */
 .project-image {
     cursor: pointer;
     transition: transform 0.2s ease;
