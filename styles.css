@@ -34,15 +34,16 @@ body.dark-mode {
 
 /* button */
 .theme-toggle-container {
-    text-align: left;
+    text-align: center;
     padding: 20px;
 }
 
 
 .theme-toggle {
     background-color: transparent;
-    color: var(--text-color);
-    border: 2px solid var(--border-color);
+    color:  #413f3f;
+    border: 2px solid ;
+    border-color: #7d7a7a;
     padding: 10px 20px;
     border-radius: 0px;
     cursor: pointer;
@@ -110,3 +111,73 @@ body.dark-mode {
 .project-image:hover {
     transform: scale(1.02);
 }
+
+/* sorting */
+.work-grid {
+    display: grid ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) ;
+    gap: 20px ;
+    padding: 20px ;
+}
+
+
+.work-grid figure {
+    margin: 0 ;
+    padding: 15px ;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.work-grid figure:hover {
+    transform: translateY(-5px);
+}
+
+.work-grid img {
+    width: 100% ;
+    height: 250px ;
+    object-fit: cover ;
+    border-radius: 8px ;
+    cursor: pointer;
+}
+
+.work-grid figcaption {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Sort buttons */
+.sort-container {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.sort-btn {
+    background-color: transparent;
+    color: #413f3f;
+    border: 2px solid ;
+    border-color: #7d7a7a;
+    padding: 10px 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background-color: transparent;
+    transform: scale(1.05);
+}
+
+.sort-btn.active {
+    background-color: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
+
